@@ -1,0 +1,7 @@
+- alias: hasura
+  config:
+    configmap: controller-conf
+    namespace: devout23-hasura
+  data: null
+  kubeContext: devout23
+  name: devout23
