@@ -1,3 +1,6 @@
 .hasura
 react-native/node_modules
 react-native/.expo
+reactjs/node_modules
+reactjs/coverage
+reactjs/build
