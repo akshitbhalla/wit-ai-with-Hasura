@@ -1,0 +1,22 @@
+{
+  "name": "t61-project",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "jsonp": "^0.2.1",
+    "material-ui": "^0.20.0",
+    "material-ui-search-bar": "^0.4.1",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-scripts": "1.1.0",
+    "react-tap-event-plugin": "^3.0.2",
+    "wit-module": "^1.2.0",
+    "youtube-finder": "^1.0.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
