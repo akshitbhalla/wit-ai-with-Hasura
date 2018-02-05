@@ -73,7 +73,7 @@ export async function tryLogin(username, password) {
   }
 }
 
-export async function getArticleList() {
+/* export async function getArticleList() {
 	console.log('Making data query (get article list)');
   let requestOptions = {
       "method": "POST",
@@ -149,4 +149,4 @@ export async function getArticle(id) {
   	console.log("Request failed: " + e);
     return networkErrorObj;
   }
-};
+}; */

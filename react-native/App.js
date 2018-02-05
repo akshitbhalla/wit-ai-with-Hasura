@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container } from 'native-base';
 import AuthScreen from './src/components/AuthScreen';
-import ArticleList from './src/components/ArticleList';
+import ChatScreen from './src/components/ChatScreen';
 
 export default class App extends React.Component {
   

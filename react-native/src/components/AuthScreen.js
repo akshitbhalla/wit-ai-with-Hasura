@@ -2,7 +2,7 @@ import React from 'react';
 import { Container, Header, Title, Content, Button, Left, Body, Text, Form, Item, Label, Input, Right, Spinner} from 'native-base';
 import { View, Alert } from 'react-native';
 import { trySignup, tryLogin } from '../hasuraApi';
-import ArticleList from './ArticleList'
+import ChatScreen from './ChatScreen';
 
 export default class AuthScreen extends React.Component {
   
@@ -75,7 +75,7 @@ export default class AuthScreen extends React.Component {
 	  if (this.state.fontsAreLoaded == true) {
       if(this.state.isLoggedIn === true){
         return (
-            <ArticleList logoutCallback={this.handleLogout}/> 
+            <ChatScreen logoutCallback={this.handleLogout}/> 
         );
       }
     

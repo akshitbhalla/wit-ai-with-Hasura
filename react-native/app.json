@@ -1,16 +1,16 @@
 {
   "expo": {
-    "name": "blog",
-    "description": "An empty new project",
-    "slug": "blog",
+    "name": "T61-HPDF",
+    "description": "wit.ai API integration with a custom Hasura service",
+    "slug": "T61-HPDF",
     "privacy": "public",
     "sdkVersion": "22.0.0",
     "version": "1.0.0",
     "orientation": "portrait",
     "primaryColor": "#cccccc",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/hasura2.png",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/hasura.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
