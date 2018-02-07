@@ -70,7 +70,7 @@ class MaterialUIAutocompleteSearch extends Component {
 
   render() {
     return <MuiThemeProvider muiTheme={getMuiTheme()}>
-
+      
       <AutoComplete
         searchText    ={this.state.inputValue}
         dataSource    = {this.state.dataSource}
@@ -81,10 +81,12 @@ class MaterialUIAutocompleteSearch extends Component {
                             backgroundColor: '#f5f8fa',
                             borderRadius: '5px',
                             border: '1px solid #e6ecf0',
-                            marginTop:'250px',
-                            marginLeft: '500px',
-                            width: '500px',
+                            marginTop:'40vh',
+                            marginLeft: '30vw',
+                            width: '40vw',
                             height: '38px',
+                            //margin:'auto',
+                            display: 'block',
                       }}
         />
 

@@ -7,6 +7,8 @@ const style = {
   margin: 100,
   textAlign: 'center',
   display: 'inline-block',
+
+
 };
 
 const PaperComponent = () => (
