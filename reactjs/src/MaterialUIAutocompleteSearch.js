@@ -11,6 +11,8 @@ import FontIcon from 'material-ui/FontIcon';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
 
+var searchExport;
+
 const googleAutoSuggestURL = `
   //suggestqueries.google.com/complete/search?client=youtube&ds=yt&q=`;
 
@@ -65,7 +67,9 @@ class MaterialUIAutocompleteSearch extends Component {
     }
 
     onNewRequest(searchTerm) {     // SearchTerm- where the value of search is stored.
-        alert(searchTerm);   //To test whether the input is stored in it or not.it is simple alert box
+        searchExport = searchTerm; // import searchExport variable to the backend file or processing 
+        alert(searchExport);   //To test whether the input is stored in it or not.it is simple alert box
+        
         }
 
   render() {
@@ -93,5 +97,6 @@ class MaterialUIAutocompleteSearch extends Component {
       </MuiThemeProvider>
   }
 }
-
+export {searchExport};
 export default MaterialUIAutocompleteSearch;
+console.log(searchExport); 
