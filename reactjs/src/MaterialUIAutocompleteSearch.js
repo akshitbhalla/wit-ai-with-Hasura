@@ -9,6 +9,8 @@ import JSONP              from 'jsonp';
 import PaperComponent from './PaperComponent.js';
 import FontIcon from 'material-ui/FontIcon';
 import injectTapEventPlugin from 'react-tap-event-plugin';
+import axios from 'axios';
+
 injectTapEventPlugin();
 
 var searchExport;
@@ -66,11 +68,14 @@ class MaterialUIAutocompleteSearch extends Component {
       }
     }
 
-    onNewRequest(searchTerm) {     // SearchTerm- where the value of search is stored.
-        searchExport = searchTerm; // import searchExport variable to the backend file or processing 
-        alert(searchExport);   //To test whether the input is stored in it or not.it is simple alert box
-        
-        }
+     onNewRequest(searchTerm) {
+         axios.post('https://app.alumna10.hasura-app.io/backend',searchTerm)
+              .then(response => {
+                  console.log(response);
+              });                                  // SearchTerm- where the value of search is stored.
+        alert(searchTerm);                        //To test whether the input is stored in it or not.it is simple alert box
+      }
+
 
   render() {
     return <MuiThemeProvider muiTheme={getMuiTheme()}>
