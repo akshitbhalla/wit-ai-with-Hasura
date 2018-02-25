@@ -58,7 +58,6 @@ export default class ChatScreen extends Component {
           }));
         }
       });
-      
     })
     .catch((error) => {
       console.error(error);
