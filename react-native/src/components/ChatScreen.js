@@ -45,22 +45,20 @@ export default class ChatScreen extends Component {
         query: messages
       }),
     })
-    .then((response) => response.json())
-    .then((responseJson) => {
-      this.setState({
-        isLoading: false,
-        newMessage: responseJson.resp,
-      }, 
-      function() {
+    .then((resp) => resp.json())
+    .then(function(dataSource) {
+        const newMessage = dataSource.resp
+        .reverse()
+        .filter(filterBotMessages);
         if (newMessage) {
           this.setState((previousState) => ({
             messages: GiftedChat.append(previousState.messages, newMessage),
           }));
         }
-      });
-    })
+      })
     .catch((error) => {
-      console.error(error);
+      alert("Server did not provide a response!");
+      // console.error(error);
     });
   }
 
