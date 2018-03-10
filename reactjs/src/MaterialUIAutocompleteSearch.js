@@ -69,7 +69,7 @@ class MaterialUIAutocompleteSearch extends Component {
     }
 
      onNewRequest(searchTerm) {
-         axios.post('https://app.alumna10.hasura-app.io/backend',searchTerm)
+         axios.post('https://app.alumna10.hasura-app.io/backend',{query:searchTerm})
               .then(response => {
                   console.log(response);
               });                                  // SearchTerm- where the value of search is stored.
