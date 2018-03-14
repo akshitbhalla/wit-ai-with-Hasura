@@ -14,6 +14,7 @@ import axios from 'axios';
 injectTapEventPlugin();
 
 var searchExport;
+ var resp;
 
 const googleAutoSuggestURL = `
   //suggestqueries.google.com/complete/search?client=youtube&ds=yt&q=`;
@@ -67,18 +68,20 @@ class MaterialUIAutocompleteSearch extends Component {
         });
       }
     }
-
+	
      onNewRequest(searchTerm) {
-         axios.post('https://app.alumna10.hasura-app.io/backend',searchTerm)
-              .then(response => {
+         axios.post('https://app.alumna10.hasura-app.io/backend',{query:searchTerm})
+              .then(response => { resp = JSON.stringify(response.data.entities.location[0].value);
                   console.log(response);
+                  document.getElementsByClassName('result')[0].innerHTML='location is '+resp; 
               });                                  // SearchTerm- where the value of search is stored.
-        alert(searchTerm);                        //To test whether the input is stored in it or not.it is simple alert box
+           //alert(resp);      
+                          //To test whether the input is stored in it or not.it is simple alert box
       }
-
+     
 
   render() {
-    return <MuiThemeProvider muiTheme={getMuiTheme()}>
+    return <div><MuiThemeProvider muiTheme={getMuiTheme()}>
       
       <AutoComplete
         searchText    ={this.state.inputValue}
@@ -100,6 +103,8 @@ class MaterialUIAutocompleteSearch extends Component {
         />
 
       </MuiThemeProvider>
+      <div className="result" style={{color: 'white', fontSize: '200%', fontWeight:'bold' }}></div>
+      </div>
   }
 }
 export {searchExport};
