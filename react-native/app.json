@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "T61-HPDF",
+    "name": "Wit.ai with Hasura",
     "description": "wit.ai API integration with a custom Hasura service",
-    "slug": "T61-HPDF",
+    "slug": "Wit.ai with Hasura",
     "privacy": "public",
     "sdkVersion": "22.0.0",
     "version": "1.0.0",
