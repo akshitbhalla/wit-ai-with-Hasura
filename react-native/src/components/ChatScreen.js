@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { View, StyleSheet, Linking } from "react-native";
+import { Constants, Speech } from "expo";
 import { GiftedChat } from "react-native-gifted-chat";
 import messagesData from "./data";
 import NavBar from "./NavBar";
@@ -52,23 +53,30 @@ export default class ChatScreen extends Component {
     })
       .then(response => response.json())
       .then(response => {
-        resp = response.entities.location[0].value;
-        const newMessage = {
-          _id: Math.round(Math.random() * 1000000),
-          text: JSON.stringify(response.entities.location[0].value),
-          createdAt: new Date(),
-          user: {
-            _id: 2,
-            name: "React Native"
-          },
-          sent: true,
-          received: true
-        };
-        if (newMessage) {
-          this.setState(previousState => ({
-            messages: GiftedChat.append(previousState.messages, newMessage)
-          }));
-        }
+        if (Object.keys(response.entities).length !== 0) {
+          resp = response.entities.location[0].value;
+          const newMessage = {
+            _id: Math.round(Math.random() * 1000000),
+            text: resp,
+            createdAt: new Date(),
+            user: {
+              _id: 2,
+              name: "React Native"
+            },
+            sent: true,
+            received: true
+          };
+          if (newMessage) {
+            this.setState(previousState => ({
+              messages: GiftedChat.append(previousState.messages, newMessage)
+            }));
+            Speech.speak(resp, {
+              language: "en",
+              pitch: 1,
+              rate: 0.75
+            });
+          }
+        } else alert("Server did not provide a response!"); // For when wit.ai is unable to extract entity data
       })
       .catch(error => {
         alert("Server did not provide a response!");
