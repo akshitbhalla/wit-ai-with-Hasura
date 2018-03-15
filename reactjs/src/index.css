@@ -11,21 +11,22 @@ header{ z-index: 2;
 	position: relative;
 	font-size: ;
 	display: block;
-	font-size: 500%;
+   text-align: center;
+	font-size: 250%;
 	background-color: rgba(0,0,0,0.0);
 	font-weight: bold;
 	color: white;
 	margin-top: 20vh;
 	overflow: hidden;
-	
+
 }
 
-#root{ 
+#root{
 	background-color: rgba(0,0,0,0.3);
 	position: relative;
 	margin-top: -35vh;
 	height: 100vh;
-	
+
 	overflow: hidden;
 }
 
