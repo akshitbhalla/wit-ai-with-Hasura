@@ -70,7 +70,7 @@ class MaterialUIAutocompleteSearch extends Component {
     }
 	
      onNewRequest(searchTerm) {
-         axios.post('https://app.alumna10.hasura-app.io/backend',{query:searchTerm})
+         axios.post('https://app.armlet55.hasura-app.io/backend',{query:searchTerm})
               .then(response => { resp = JSON.stringify(response.data.entities.location[0].value);
                   console.log(response);
                   document.getElementsByClassName('result')[0].innerHTML='location is '+resp; 

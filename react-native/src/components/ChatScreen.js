@@ -41,7 +41,7 @@ export default class ChatScreen extends Component {
   }
 
   botSend(messages = []) {
-    fetch("https://app.alumna10.hasura-app.io/backend", {
+    fetch("https://app.armlet55.hasura-app.io/backend", {
       method: "POST",
       headers: {
         Accept: "application/json",
