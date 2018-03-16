@@ -5,10 +5,3 @@
   data: null
   kubeContext: devout23
   name: devout23
-- alias: backend
-  config:
-    configmap: controller-conf
-    namespace: alumna10-hasura
-  data: null
-  kubeContext: alumna10
-  name: alumna10
