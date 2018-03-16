@@ -7,6 +7,8 @@
 This is a Hasura project constructed to showcase wit.ai integration. 
 The app takes input queries of the form "Restaurants in \[location\]" and extracts and displays the location entered.
 
+Video: https://www.youtube.com/watch?v=Mru_c29yodU
+
 ## 1. React Native:
 
 #### Features
