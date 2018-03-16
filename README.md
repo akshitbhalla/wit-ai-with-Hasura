@@ -9,6 +9,8 @@ The app takes input queries of the form "Restaurants in \[location\]" and extrac
 
 Video: https://www.youtube.com/watch?v=Mru_c29yodU
 
+Hasura Hub: https://hasura.io/hub/projects/akshitbhalla/wit-ai-with-hasura
+
 ## 1. React Native:
 
 #### Features
