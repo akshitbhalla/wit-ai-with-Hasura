@@ -85,7 +85,7 @@ Axios is used to make AJAX calls to the server.
 
 #### Support and Contact
 
-If you're having issues with this app or would like to request new features, reach out to Chamanth at or Debarghya at 
+If you're having issues with this app or would like to request new features, reach out to Chamanth at [@chamanth95](https://twitter.com/chamanth95) or Debarghya at [Reddit](https://www.reddit.com/user/minoritydev).
 
 ## 3. Python Flask
 
@@ -97,4 +97,4 @@ The response is stored, converted into JSON and sent back to the front end for r
 
 #### Support and Contact
 
-If you're having issues with this app or would like to request new features, reach out to Gurankas Singh at 
+If you're having issues with this app or would like to request new features, reach out to Gurankas Singh at [@gurankas](https://twitter.com/gurankas).
