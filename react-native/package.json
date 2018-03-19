@@ -1,5 +1,5 @@
 {
-  "name": "t61-hpdf",
+  "name": "wit-ai-with-hasura",
   "version": "1.0.0",
   "description": "wit.ai API integration with a custom Hasura service",
   "private": true,

@@ -1,65 +1,99 @@
-import React, { Component } from 'react';
-import { View, StyleSheet, Linking } from 'react-native';
-import { GiftedChat } from 'react-native-gifted-chat';
-// import messagesData from './data';
-import NavBar from './NavBar';
-// import CustomView from './CustomView';
+import React, { Component } from "react";
+import { View, StyleSheet, Linking } from "react-native";
+import { Constants, Speech } from "expo";
+import { GiftedChat } from "react-native-gifted-chat";
+import messagesData from "./data";
+import NavBar from "./NavBar";
 
 const styles = StyleSheet.create({
-  container: { flex: 1 },
+  container: { flex: 1 }
 });
 
-// const filterBotMessages = (message) => !message.system && message.user && message.user._id && message.user._id === 2;
-// const findStep = (step) => (_, index) => index === step - 1;
+const filterBotMessages = message =>
+  !message.system && message.user && message.user._id && message.user._id === 2;
 
 export default class ChatScreen extends Component {
-
   constructor(props) {
     super(props);
     this.state = {
-      messages: [],
-      step: 0,
+      messages: []
     };
 
     this.onSend = this.onSend.bind(this);
-    // this.parsePatterns = this.parsePatterns.bind(this);
+    this.parsePatterns = this.parsePatterns.bind(this);
   }
 
-/*   componentWillMount() {
+  componentWillMount() {
     // init with only system messages
-    this.setState({ messages: messagesData.filter((message) => message.system) });
-  } */
+    this.setState({ messages: messagesData.filter(message => message.system) });
+  }
 
   onSend(messages = []) {
-    const step = this.state.step + 1;
-    this.setState((previousState) => ({
-      messages: GiftedChat.append(previousState.messages, [{ ...messages[0], sent: true, received: true }]),
-      step,
+    this.setState(previousState => ({
+      messages: GiftedChat.append(previousState.messages, [
+        { ...messages[0], sent: true }
+      ])
     }));
-    // setTimeout(() => this.botSend(step), 1500 + Math.round(Math.random() * 1000));
+    setTimeout(
+      () => this.botSend(messages),
+      1500 + Math.round(Math.random() * 1000)
+    );
   }
 
-/*   botSend(step = 0) {
-    const newMessage = messagesData
-      .reverse()
-      .filter(filterBotMessages)
-      .find(findStep(step));
-    if (newMessage) {
-      this.setState((previousState) => ({
-        messages: GiftedChat.append(previousState.messages, newMessage),
-      }));
-    }
-  } */
+  botSend(messages = []) {
+    fetch("https://app.armlet55.hasura-app.io/backend", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        query: messages[0].text
+      })
+    })
+      .then(response => response.json())
+      .then(response => {
+        if (Object.keys(response.entities).length !== 0) {
+          resp = response.entities.location[0].value;
+          const newMessage = {
+            _id: Math.round(Math.random() * 1000000),
+            text: resp,
+            createdAt: new Date(),
+            user: {
+              _id: 2,
+              name: "React Native"
+            },
+            sent: true,
+            received: true
+          };
+          if (newMessage) {
+            this.setState(previousState => ({
+              messages: GiftedChat.append(previousState.messages, newMessage)
+            }));
+            Speech.speak(resp, {
+              language: "en",
+              pitch: 1,
+              rate: 0.75
+            });
+          }
+        } else alert("Server did not provide a response!"); // For when wit.ai is unable to extract entity data
+      })
+      .catch(error => {
+        alert("Server did not provide a response!");
+        console.error(error);
+      });
+  }
 
-/*   parsePatterns(linkStyle) {
+  parsePatterns(linkStyle) {
     return [
       {
         pattern: /#(\w+)/,
-        style: { ...linkStyle, color: 'blue' },
-        onPress: () => Linking.openURL('http://akshitbhalla.co'),
-      },
+        style: { ...linkStyle, color: "blue" },
+        onPress: () => this.onPressHashtag
+      }
     ];
-  } */
+  }
+
   render() {
     return (
       <View style={styles.container}>
@@ -67,14 +101,12 @@ export default class ChatScreen extends Component {
         <GiftedChat
           messages={this.state.messages}
           onSend={this.onSend}
-          // renderCustomView={CustomView}
           user={{
-            _id: 1,
+            _id: 1
           }}
-          // parsePatterns={this.parsePatterns}
+          parsePatterns={this.parsePatterns}
         />
       </View>
     );
   }
-
 }

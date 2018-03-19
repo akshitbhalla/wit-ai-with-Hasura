@@ -5,8 +5,8 @@ class Header extends Component {
   render() {
     return (
     	<header>
-    		"What can I do for you?"
-    			<div id="typing"> Start Typing!</div>
+    		"Search for the restaurants in your desired location"
+    			<div id="typing"> </div>
     	</header>
     );
   }
